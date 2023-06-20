@@ -33,6 +33,7 @@ const DataGridData = () => {
         columnAutoWidth={true}
         columnHidingEnabled={true}
         scrolling={true}
+        height={500}
       >
         <SearchPanel visible={true} width={240} placeholder="Search..." />
         <Paging defaultPageSize={10} />

@@ -29,7 +29,7 @@ export const navigation = [
       },
       {
         text: "Save",
-        path: "/save",
+        path: "/saveitems",
         icon: "email",
       },
     ],

@@ -1,4 +1,10 @@
-import { HomePage, TasksPage, ProfilePage, InboundPage } from "./pages";
+import {
+  HomePage,
+  TasksPage,
+  ProfilePage,
+  InboundPage,
+  SaveItemPage,
+} from "./pages";
 import { withNavigationWatcher } from "./contexts/navigation";
 
 const routes = [
@@ -17,6 +23,10 @@ const routes = [
   {
     path: "/inbound",
     element: InboundPage,
+  },
+  {
+    path: "/saveitems",
+    element: SaveItemPage,
   },
 ];
 
