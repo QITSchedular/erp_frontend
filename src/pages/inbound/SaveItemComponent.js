@@ -6,36 +6,28 @@ import {
   ButtonItem,
   ButtonOptions,
 } from "devextreme-react/form";
-// Updated import statement
 import "devextreme-react/text-area";
 
 import { positions, states } from "./data.js";
+import { itemsGroupSave } from "../../utils/save-data.js";
 
 const SaveItemComponent = () => {
   const [formData, setFormData] = useState({}); // State to store the form data
 
-  const birthDateOptions = { width: "100%" };
-  const positionOptions = {
-    items: positions,
-    value: "",
-  };
-  const stateOptions = {
-    items: states,
-  };
-  const phoneOptions = { mask: "+1 (000) 000-0000" };
-  const notesOptions = { height: 140 };
-
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     // Handle the form data here
-    console.log(formData);
+    const response = await itemsGroupSave(formData);
+    console.log(response);
   };
 
   const handleFormChange = (e) => {
-    // Update the form data state on form field change
-    setFormData((prevData) => ({
-      ...prevData,
-      [e.dataField]: e.value,
-    }));
+    // Exclude label fields when updating the form data state
+    if (e.event?.target?.type !== "label") {
+      setFormData((prevData) => ({
+        ...prevData,
+        [e.dataField]: e.value,
+      }));
+    }
   };
 
   return (
@@ -46,9 +38,15 @@ const SaveItemComponent = () => {
           <Form formData={formData} onFieldDataChanged={handleFormChange}>
             <GroupItem cssClass="first-group" colCount={4}>
               <GroupItem colSpan={3}>
-                <SimpleItem dataField="Item Group Name" />
-                <SimpleItem dataField="QR Managed By" />
-                <SimpleItem dataField="Locked" />
+                <SimpleItem
+                  dataField="itmsGrpNam"
+                  label={{ text: "Item Group Name" }}
+                />
+                <SimpleItem
+                  dataField="qrMngBy"
+                  label={{ text: "QR Managed By" }}
+                />
+                <SimpleItem dataField="locked" label={{ text: "Locked" }} />
               </GroupItem>
             </GroupItem>
             <ButtonItem horizontalAlignment="left">
