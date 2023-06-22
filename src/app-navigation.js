@@ -32,6 +32,11 @@ export const navigation = [
         path: "/saveitems",
         icon: "email",
       },
+      {
+        text: "Item Master",
+        path: "/itemsmaster",
+        icon: "save",
+      },
     ],
   },
 ];

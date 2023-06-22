@@ -3,7 +3,7 @@ import axios from "axios";
 export const fetchAllEmployees = async () => {
   try {
     const response = await axios.get(
-      "http://localhost:8000/adminControl/allemployees"
+      "http://localhost:8080/adminControl/allemployees"
     );
     console.log(response.data.length);
     return response.data;

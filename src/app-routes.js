@@ -4,6 +4,7 @@ import {
   ProfilePage,
   InboundPage,
   SaveItemPage,
+  ItemsMasterPage,
 } from "./pages";
 import { withNavigationWatcher } from "./contexts/navigation";
 
@@ -27,6 +28,10 @@ const routes = [
   {
     path: "/saveitems",
     element: SaveItemPage,
+  },
+  {
+    path: "/itemsmaster",
+    element: ItemsMasterPage,
   },
 ];
 
